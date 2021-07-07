@@ -35,11 +35,11 @@ namespace WindowsFormsApp1
 
         private void DrawCircle()
         {
-            var draw = this.CreateGraphics();
+            var g = this.CreateGraphics();
 
             for (int i = 0; i < day; i++)
             {
-                draw.FillEllipse(new SolidBrush(Color.Black), new Rectangle(new Point((int)(this.Width / 2 + Lenght * Math.Cos(Math.PI / 6 * i)),
+                g.FillEllipse(new SolidBrush(Color.Black), new Rectangle(new Point((int)(this.Width / 2 + Lenght * Math.Cos(Math.PI / 6 * i)),
                                                                             (int)(this.Height / 2 + Lenght * Math.Sin(Math.PI / 6 * i))),
                                                                             new Size(7, 7)));
                 if (i == 3)
@@ -49,8 +49,10 @@ namespace WindowsFormsApp1
                 }
             }
 
-            draw.FillEllipse(new SolidBrush(this.color), new Rectangle(new Point((int)(this.ClientRectangle.Width / 2 - Lenght + 10),
+            g.FillEllipse(new SolidBrush(this.color), new Rectangle(new Point((int)(this.ClientRectangle.Width / 2 - Lenght + 10),
                         (int)(this.ClientRectangle.Height / 2 - Lenght + 10)), new Size((int)(Lenght - 10) * 2, (int)(Lenght - 10) * 2)));
+
+            g.FillEllipse(Brushes.AntiqueWhite, new Rectangle(100, 100, 200, 200));
         }
         private void ClockControl_Paint(object sender, PaintEventArgs e)
         {

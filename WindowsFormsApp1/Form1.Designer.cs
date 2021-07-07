@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace WindowsFormsApp1
 {
     partial class Form1
@@ -32,9 +34,14 @@ namespace WindowsFormsApp1
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "Clock";
 
+            clock = new Clock();
+            clock = new Clock(new Size(400, 400), new Point(this.ClientSize.Width / 2 - 400 / 2, this.ClientSize.Height / 2 - 400 / 2), Color.SandyBrown);
+            this.Controls.Add(clock);
         }
+
+        private Clock clock;
 
         #endregion
     }
